@@ -1,0 +1,50 @@
+#include<stdio.h>
+#define MAX 10
+int arr[MAX],num,loop;
+int pos,val;
+void create()
+{
+    for(loop=0;loop<num;loop++){
+        scanf("%d",&arr[loop]);
+    }
+}
+void insert(){
+   
+    printf("\nEnter the position:");
+    scanf("%d",&pos);
+    printf("\nEnter the value:");
+    scanf("%d",&val);
+    if(pos<=0||pos>=MAX)
+    printf("Invalid");
+    else{
+        for(loop=num;loop>=pos;loop--){
+            arr[loop]=arr[loop-1];
+        }
+        arr[pos-1]=val;
+        num++;
+    }
+}
+void delete(){
+    for(loop=pos;loop<num;loop++){
+        arr[loop-1]=arr[loop];
+    }
+    num--;
+}
+void display(){
+    for(loop=0;loop<num;loop++){
+        printf("%d ",arr[loop]);
+    }
+printf("\n");
+}
+int main()
+{
+    printf("Enter the num value:");
+    scanf("%d",&num);
+    create();
+    display();
+    insert();
+    display();
+    delete();
+    display();
+    return 0;
+}
